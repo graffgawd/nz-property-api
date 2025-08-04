@@ -6,7 +6,10 @@ const cheerio = require('cheerio');
 const cron = require('node-cron');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ['https://nz-property-scanner-njfco75h0-graff-gawds-projects.vercel.app', 'http://localhost:3000'],
+  credentials: true
+}));
 app.use(express.json());
 
 // In-memory database
@@ -315,4 +318,5 @@ app.listen(PORT, () => {
   console.log(`🔄 Scheduled updates: Daily at 6:00 AM NZ time`);
   console.log(`🌐 CORS enabled for frontend integration`);
   console.log(`🔗 API Documentation: http://localhost:${PORT}`);
+
 });
